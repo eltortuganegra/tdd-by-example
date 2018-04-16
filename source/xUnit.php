@@ -5,7 +5,16 @@ require_once 'WasRun.php';
 
 use app\WasRun;
 
-$test = new WasRun('testMethod');
-echo $test->wasRun;
-$test->run();
-echo $test->wasRun;
+class TestCaseTest
+{
+    public function testRunning()
+    {
+        $test = new WasRun('testMethod');
+        assert( ! $test->wasRun, 'wasrun not initialize to false.');
+        $test->run();
+        assert($test->wasRun, 'wasrun not was run.');
+    }
+}
+
+$test = new TestCaseTest();
+$test->testRunning();
