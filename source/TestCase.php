@@ -13,6 +13,7 @@ class TestCase
 
     public function run()
     {
+        $this->setUp();
         $methodName = $this->methodName;
         $this->$methodName();
     }
