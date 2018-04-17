@@ -6,24 +6,21 @@ use app\TestCase;
 
 class WasRun extends TestCase
 {
-    public $wasRun;
-    public $wasSetUp;
+    public $log;
 
-    public function __construct(string $methodName)
+    public function setUp()
     {
-        parent::__construct($methodName);
-        $this->wasSetUp = false;
+        $this->log = 'setUp ';
     }
 
     public function testMethod()
     {
-        $this->wasRun = true;
+        $this->log .= 'testMethod ';
     }
 
-    public function setUp()
+    public function tearDown()
     {
-        $this->wasRun = false;
-        $this->wasSetUp = true;
+        $this->log .= 'tearDown ';
     }
 
 }

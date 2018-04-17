@@ -16,6 +16,7 @@ class TestCase
         $this->setUp();
         $methodName = $this->methodName;
         $this->$methodName();
+        $this->tearDown();
     }
 
 }

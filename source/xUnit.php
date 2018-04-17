@@ -7,28 +7,14 @@ use app\WasRun;
 
 class TestCaseTest
 {
-    private $test;
-
-    public function setUp()
+    public function testTemplateMethod()
     {
-        $this->test = new WasRun('testMethod');
-    }
-
-    public function testRunning()
-    {
-        $this->test->run();
-        assert($this->test->wasRun, 'wasRun not was run.');
-    }
-
-    public function testSetUp()
-    {
-        $this->test->run();
-        assert($this->test->wasSetUp, 'The wasSetUp is false.');
+        $test = new WasRun('testMethod');
+        $test->run();
+        assert('setUp testMethod tearDown ' == $test->log, 'Expected "setUp testMethod " actual: ' . $test->log);
     }
 
 }
 
 $test = new TestCaseTest();
-$test->setUp();
-$test->testRunning();
-$test->testSetUp();
+$test->testTemplateMethod();
