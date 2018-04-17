@@ -11,12 +11,16 @@ class TestCase
         $this->methodName = $methodName;
     }
 
-    public function run()
+    public function run():TestResult
     {
+        $result = new TestResult();
+        $result->testStarted();
         $this->setUp();
         $methodName = $this->methodName;
         $this->$methodName();
         $this->tearDown();
+
+        return $result;
     }
 
 }
