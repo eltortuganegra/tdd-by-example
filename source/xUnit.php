@@ -9,4 +9,6 @@ use app\TestCaseTest;
 
 $test = new TestCaseTest();
 $test->testTemplateMethod();
+$test->testResult();
 $test->testFailedResultFormatting();
+$test->testFailedResult();
