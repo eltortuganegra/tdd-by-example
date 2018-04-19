@@ -17,7 +17,11 @@ class TestCase
         $result->testStarted();
         $this->setUp();
         $methodName = $this->methodName;
-        $this->$methodName();
+        try {
+            $this->$methodName();
+        } catch(\Exception $e) {
+            $result->testFailed();
+        }
         $this->tearDown();
 
         return $result;

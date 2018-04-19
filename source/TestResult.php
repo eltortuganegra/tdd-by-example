@@ -5,10 +5,12 @@ namespace app;
 class TestResult
 {
     private $runCount;
+    private $errorCount;
 
     public function __construct()
     {
         $this->runCount = 0;
+        $this->errorCount = 0;
     }
 
     public function testStarted()
@@ -18,6 +20,11 @@ class TestResult
 
     public function summary()
     {
-        return $this->runCount . ' run, 0 failed';
+        return "$this->runCount run, $this->errorCount failed";
+    }
+
+    public function testFailed()
+    {
+        $this->errorCount++;
     }
 }
