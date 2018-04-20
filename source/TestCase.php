@@ -11,9 +11,8 @@ class TestCase
         $this->methodName = $methodName;
     }
 
-    public function run():TestResult
+    public function run(TestResult $result)
     {
-        $result = new TestResult();
         $result->testStarted();
         $this->setUp();
         $methodName = $this->methodName;
@@ -23,8 +22,14 @@ class TestCase
             $result->testFailed();
         }
         $this->tearDown();
+    }
 
-        return $result;
+    public function setUp()
+    {
+    }
+
+    public function tearDown()
+    {
     }
 
 }

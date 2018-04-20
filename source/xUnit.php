@@ -1,14 +1,18 @@
 <?php
 
-require_once 'TestCase.php';
-require_once 'WasRun.php';
-require_once 'TestResult.php';
-require_once 'TestCaseTest.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use app\TestCaseTest;
+use app\TestResult;
+use app\TestSuite;
 
-$test = new TestCaseTest();
-$test->testTemplateMethod();
-$test->testResult();
-$test->testFailedResultFormatting();
-$test->testFailedResult();
+$suite = new TestSuite();
+$suite->add(new TestCaseTest('testTemplateMethod'));
+$suite->add(new TestCaseTest('testResult'));
+$suite->add(new TestCaseTest('testFailedResultFormatting'));
+$suite->add(new TestCaseTest('testFailedResult'));
+$suite->add(new TestCaseTest('testSuite'));
+$result = new TestResult();
+$suite->run($result);
+
+echo $result->summary();
