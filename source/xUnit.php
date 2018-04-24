@@ -16,3 +16,6 @@ $result = new TestResult();
 $suite->run($result);
 
 echo $result->summary();
+
+$test = new TestCaseTest('testSetUp');
+$result = $test->run($result);
