@@ -1,5 +1,7 @@
 <?php
 
+namespace chapter_23;
+
 class TestResult
 {
     private $runCount;
