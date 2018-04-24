@@ -2,7 +2,6 @@
 
 namespace chapter_23;
 
-use TestResult;
 
 class TestCase
 {
